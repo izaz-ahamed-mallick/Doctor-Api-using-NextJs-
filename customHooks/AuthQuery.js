@@ -1,11 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
-import login from "../api/function/login";
+
 import { Cookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import { loginDetails } from "../Store/AuthSlice";
-import registration from "../api/function/registration";
+
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import login from "../api/function/authApi/login";
+import registration from "../api/function/authApi/registration";
 
 let cookies = new Cookies();
 

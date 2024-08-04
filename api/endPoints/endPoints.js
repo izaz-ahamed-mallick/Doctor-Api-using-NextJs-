@@ -9,4 +9,9 @@ export const endPoints = {
         appoinment: "/createappointment",
         doctorDetails: "/doctordetails",
     },
+    contact: "/createcontact",
+    blog: {
+        allBlog: "/allblog",
+        searchBlog: "/blogsearch",
+    },
 };

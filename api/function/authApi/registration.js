@@ -1,5 +1,5 @@
-import axiosInstance from "../axios/helper";
-import { endPoints } from "../endPoints/endPoints";
+import axiosInstance from "../../axios/helper";
+import { endPoints } from "../../endPoints/endPoints";
 
 const registration = async (payload) => {
     const response = await axiosInstance.post(

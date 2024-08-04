@@ -1,11 +1,12 @@
-// pages/login.js
-
 "use client";
 import React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../../../../customHooks/AuthQuery";
 import LoadingButton from "../../../../Utils/LoadingButton";
+import Image from "next/image";
+import loginBg from "../../../../public/Images/loginBg.jpeg";
+import logo from "../../../../public/Images/logo.png";
 
 const Login = () => {
     const {
@@ -17,14 +18,28 @@ const Login = () => {
     const { mutate, isPending } = useLoginMutation();
 
     const onSubmit = (data) => {
-        // Handle the form submission logic here
-
         mutate(data);
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="min-h-screen flex items-center justify-center bg-cover bg-center relative">
+            <Image
+                src={loginBg}
+                alt="Login Background"
+                fill
+                priority
+                style={{ objectFit: "cover" }}
+                className="z-0"
+            />
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md backdrop-blur-0 bg-opacity-80 z-10">
+                <div className="flex justify-center mb-4">
+                    <Image
+                        src={logo}
+                        alt="DoctorConsult Logo"
+                        width={100}
+                        height={100}
+                    />
+                </div>
                 <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
                     Login to DoctorConsult
                 </h2>
@@ -83,10 +98,6 @@ const Login = () => {
                         )}
                     </div>
                     <div className="flex items-center justify-between">
-                        {/* <button
-                            type="submit"
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
-                        ></button> */}
                         <LoadingButton
                             type="submit"
                             isLoading={isPending}

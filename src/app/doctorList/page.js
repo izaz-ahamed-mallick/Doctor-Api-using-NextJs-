@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import bgImg from "../../../public/Images/DoctorPage.jpeg";
 import AboutUs from "../components/AboutUs";
+import BlogHome from "../components/BlogHome";
 
 const page = () => {
     return (
@@ -36,6 +37,7 @@ const page = () => {
                 </div>
             </div>
             <AboutUs />
+            <BlogHome />
         </div>
     );
 };

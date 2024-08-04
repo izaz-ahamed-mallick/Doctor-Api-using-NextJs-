@@ -6,6 +6,8 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useRegistrationMutation } from "../../../../customHooks/AuthQuery";
 import LoadingButton from "../../../../Utils/LoadingButton";
+import loginBg from "../../../../public/Images/signUpBg.jpeg";
+import logo from "../../../../public/Images/logo.png";
 
 const Signup = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -45,8 +47,24 @@ const Signup = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-500">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div className="min-h-screen flex items-center justify-center bg-cover bg-center relative">
+            <Image
+                src={loginBg}
+                alt="Signup Background"
+                fill
+                priority
+                style={{ objectFit: "cover" }}
+                className="z-0"
+            />
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md backdrop-blur-0 bg-opacity-80 z-10">
+                <div className="flex justify-center mb-4">
+                    <Image
+                        src={logo}
+                        alt="DoctorConsult Logo"
+                        width={100}
+                        height={100}
+                    />
+                </div>
                 <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
                     Register for DoctorConsult
                 </h2>
@@ -234,12 +252,6 @@ const Signup = () => {
                         )}
                     </div>
                     <div className="flex items-center justify-between">
-                        {/* <button
-                            type="submit"
-                            className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
-                        >
-                            Sign Up
-                        </button> */}
                         <LoadingButton
                             type="submit"
                             isLoading={isPending}

@@ -1,37 +1,34 @@
-// pages/about.js
-
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import aboutImg from "../../../public/Images/aboutUs2.jpeg";
+import ContactUsModal from "./ContactUsModal";
+import HeroSection from "./HeroSection2";
+import HeroSection2 from "./HeroSection2";
 
 const AboutUs = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleContactUsModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col">
-            <div className="relative h-96 w-full">
-                <Image
-                    fill
-                    style={{ objectFit: "cover" }}
-                    src={aboutImg}
-                    alt="About Us Background"
-                    className="absolute inset-0 object-cover"
-                />
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="relative flex items-center justify-center h-full text-center text-white p-6">
-                    <div>
-                        <h1 className="text-5xl font-bold mb-4">About Us</h1>
-                        <p className="text-lg mb-6">
-                            Discover who we are and our commitment to your
-                            health.
-                        </p>
-                        <Link href="/contact" legacyBehavior>
-                            <a className="bg-yellow-500 hover:bg-yellow-400 text-white py-2 px-6 rounded-md text-lg font-semibold">
-                                Contact Us
-                            </a>
-                        </Link>
-                    </div>
-                </div>
-            </div>
+            <HeroSection2
+                backgroundImage={aboutImg}
+                title={"About Us"}
+                description={
+                    " Discover who we are and our commitment to your health."
+                }
+                buttonText={"  Contact Us"}
+                onButtonClick={handleContactUsModal}
+            />
 
             {/* Main Content Section */}
             <div className="flex flex-col items-center py-12 px-6">
@@ -75,6 +72,7 @@ const AboutUs = () => {
                     </div>
                 </section>
             </div>
+            <ContactUsModal onClose={handleCloseModal} isOpen={isModalOpen} />
         </div>
     );
 };
