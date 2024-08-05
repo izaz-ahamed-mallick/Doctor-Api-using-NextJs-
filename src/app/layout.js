@@ -4,6 +4,7 @@ import Wrapper from "../../layout/wrapper/Wrapper";
 import ClientProviderWrapper from "./components/ClientProviderWrapper";
 
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

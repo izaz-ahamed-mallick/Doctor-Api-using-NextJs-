@@ -7,8 +7,6 @@ import { Provider } from "react-redux";
 import AppStore from "../../../Store/AppStore";
 import queryClient from "../../../customHooks/globalHooks/globalHooks";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ClientProviderWrapper = ({ children }) => {
     return (

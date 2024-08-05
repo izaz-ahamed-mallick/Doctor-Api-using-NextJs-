@@ -112,7 +112,7 @@ const Header = () => {
                                         width={40}
                                         height={40}
                                         priority
-                                        src={`${imgPath}${image}`}
+                                        src={`${imgPath}${image}` || "no Image"}
                                         alt={name.toUpperCase()}
                                         className="rounded-full border-2 border-gray-300 shadow-inner"
                                     />
@@ -174,104 +174,110 @@ const Header = () => {
                 </div>
 
                 {/* Mobile Navigation */}
-                <div className="flex  lg:hidden md:flex  items-center">
-                    <div onClick={toggleMobileMenu}>
-                        <button
-                            className={` ${
-                                isMobileMenuOpen && "rotate-180"
-                            } text-white hover:text-gray-300 transition duration-300 ease-in-out`}
+                {isClient && isAuthenticate && (
+                    <div className="flex  lg:hidden md:flex  items-center">
+                        <div onClick={toggleMobileMenu}>
+                            <button
+                                className={` ${
+                                    isMobileMenuOpen && "rotate-180"
+                                } text-white hover:text-gray-300 transition duration-300 ease-in-out`}
+                            >
+                                <Image
+                                    src={icon}
+                                    alt={"Menu"}
+                                    width={60}
+                                    height={60}
+                                />
+                            </button>
+                        </div>
+                        <div
+                            className={`fixed top-20 right-0 h-full bg-white text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
+                                isMobileMenuOpen
+                                    ? "translate-x-0"
+                                    : "translate-x-full"
+                            }`}
                         >
-                            <Image
-                                src={icon}
-                                alt={"Menu"}
-                                width={60}
-                                height={60}
-                            />
-                        </button>
-                    </div>
-                    <div
-                        className={`fixed top-20 right-0 h-full bg-white text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
-                            isMobileMenuOpen
-                                ? "translate-x-0"
-                                : "translate-x-full"
-                        }`}
-                    >
-                        <button
-                            onClick={closeMobileMenu}
-                            className={` ${
-                                !isMobileMenuOpen && "rotate-180"
-                            } text-white hover:text-gray-300 transition duration-300 ease-in-out`}
-                        >
-                            <Image
-                                src={crossicon}
-                                alt={"Close"}
-                                width={60}
-                                height={60}
-                            />
-                        </button>
-                        <div className="flex  flex-col items-start py-2 w-48">
-                            <>
-                                <button
-                                    onClick={() => navigateToSection("home")}
-                                    className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
-                                >
-                                    Home
-                                </button>
-
-                                <button
-                                    onClick={() => navigateToSection("aboutUs")}
-                                    className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
-                                >
-                                    About Us
-                                </button>
-
-                                <button
-                                    onClick={() =>
-                                        navigateToSection("blogHome")
-                                    }
-                                    className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
-                                >
-                                    Blog
-                                </button>
-                            </>
-
-                            {isClient && isAuthenticate ? (
+                            <button
+                                onClick={closeMobileMenu}
+                                className={` ${
+                                    !isMobileMenuOpen && "rotate-180"
+                                } text-white hover:text-gray-300 transition duration-300 ease-in-out`}
+                            >
+                                <Image
+                                    src={crossicon}
+                                    alt={"Close"}
+                                    width={60}
+                                    height={60}
+                                />
+                            </button>
+                            <div className="flex  flex-col items-start py-2 w-48">
                                 <>
-                                    <Link href="/user" legacyBehavior>
-                                        <a
-                                            onClick={closeMobileMenu}
-                                            className="block w-full hover:shadow-xl px-4 py-2 text-lg font-semibold hover:bg-gray-100 transition duration-200"
-                                        >
-                                            Profile
-                                        </a>
-                                    </Link>
                                     <button
-                                        onClick={handleLogout}
+                                        onClick={() =>
+                                            navigateToSection("home")
+                                        }
                                         className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
                                     >
-                                        Logout
+                                        Home
+                                    </button>
+
+                                    <button
+                                        onClick={() =>
+                                            navigateToSection("aboutUs")
+                                        }
+                                        className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
+                                    >
+                                        About Us
+                                    </button>
+
+                                    <button
+                                        onClick={() =>
+                                            navigateToSection("blogHome")
+                                        }
+                                        className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
+                                    >
+                                        Blog
                                     </button>
                                 </>
-                            ) : (
-                                <>
-                                    <Link href="/auth/login" legacyBehavior>
-                                        <a className="bg-blue-700 hover:bg-blue-600 text-white py-2 px-4 rounded-full transition duration-200 transform hover:scale-105">
-                                            Login
-                                        </a>
-                                    </Link>
-                                    <Link
-                                        href="/auth/registration"
-                                        legacyBehavior
-                                    >
-                                        <a className="bg-green-700 hover:bg-green-600 text-white py-2 px-4 rounded-full transition duration-200 transform hover:scale-105">
-                                            Sign Up
-                                        </a>
-                                    </Link>
-                                </>
-                            )}
+
+                                {isClient && isAuthenticate ? (
+                                    <>
+                                        <Link href="/user" legacyBehavior>
+                                            <a
+                                                onClick={closeMobileMenu}
+                                                className="block w-full hover:shadow-xl px-4 py-2 text-lg font-semibold hover:bg-gray-100 transition duration-200"
+                                            >
+                                                Profile
+                                            </a>
+                                        </Link>
+                                        <button
+                                            onClick={handleLogout}
+                                            className="block w-full hover:shadow-xl text-left px-4 py-2 text-lg font-semibold hover:bg-gray-100 rounded-b-lg transition duration-200"
+                                        >
+                                            Logout
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Link href="/auth/login" legacyBehavior>
+                                            <a className="bg-blue-700 hover:bg-blue-600 text-white py-2 px-4 rounded-full transition duration-200 transform hover:scale-105">
+                                                Login
+                                            </a>
+                                        </Link>
+                                        <Link
+                                            href="/auth/registration"
+                                            legacyBehavior
+                                        >
+                                            <a className="bg-green-700 hover:bg-green-600 text-white py-2 px-4 rounded-full transition duration-200 transform hover:scale-105">
+                                                Sign Up
+                                            </a>
+                                        </Link>
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </header>
     );
