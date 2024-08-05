@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import bgImg from "../../../public/Images/DoctorPage.jpeg";
 import AboutUs from "../components/AboutUs";
@@ -82,12 +82,14 @@ const Page = ({ params }) => {
                     </Link>
                 </div>
             </div>
-            <div ref={aboutUsRef}>
-                <AboutUs />
-            </div>
-            <div ref={blogHomeRef}>
-                <BlogHome />
-            </div>
+            <Suspense>
+                <div ref={aboutUsRef}>
+                    <AboutUs />
+                </div>
+                <div ref={blogHomeRef}>
+                    <BlogHome />
+                </div>
+            </Suspense>
             <div>
                 <button
                     onClick={scrollToTop}
