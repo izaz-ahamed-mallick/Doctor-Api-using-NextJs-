@@ -26,21 +26,22 @@ const Login = () => {
             <Image
                 src={loginBg}
                 alt="Login Background"
-                fill
                 priority
-                style={{ objectFit: "cover" }}
+                fill
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 className="z-0"
             />
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md backdrop-blur-0 bg-opacity-80 z-10">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md backdrop-blur-0 bg-opacity-80 z-10">
                 <div className="flex justify-center mb-4">
                     <Image
                         src={logo}
                         alt="DoctorConsult Logo"
                         width={100}
                         height={100}
+                        style={{ width: "auto", height: "auto" }}
                     />
                 </div>
-                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">
                     Login to DoctorConsult
                 </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,7 +62,7 @@ const Login = () => {
                             })}
                             type="email"
                             id="email"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-lg appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your email"
                         />
                         {errors.email && (
@@ -88,7 +89,7 @@ const Login = () => {
                             })}
                             type="password"
                             id="password"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-lg appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your password"
                         />
                         {errors.password && (
@@ -97,7 +98,7 @@ const Login = () => {
                             </p>
                         )}
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between flex-col gap-3 md:flex-row">
                         <LoadingButton
                             type="submit"
                             isLoading={isPending}
@@ -110,7 +111,7 @@ const Login = () => {
                             href="/auth/registration"
                             className="inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800 transition duration-300"
                         >
-                            Sign Up
+                            Dont have an account? Sign Up
                         </Link>
                     </div>
                 </form>

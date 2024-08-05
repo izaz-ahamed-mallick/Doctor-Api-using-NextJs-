@@ -12,11 +12,13 @@ const AuthSlice = createSlice({
     },
     reducers: {
         loginDetails: (state, action) => {
-            const { name, token, image, _id } = action.payload;
+            const { name, token, image, _id, phone, email } = action.payload;
             cookie.set("name", name, { path: "/" });
             cookie.set("image", image, { path: "/" });
             cookie.set("token", token, { path: "/" });
             cookie.set("userId", _id, { path: "/" });
+            cookie.set("phone", phone, { path: "/" });
+            cookie.set("email", email, { path: "/" });
             state.isAuthenticate = true;
             state.name = name;
             state.image = image;
@@ -27,6 +29,8 @@ const AuthSlice = createSlice({
             cookie.remove("image", { path: "/" });
             cookie.remove("token", { path: "/" });
             cookie.remove("userId", { path: "/" });
+            cookie.remove("phone", { path: "/" });
+            cookie.remove("email", { path: "/" });
             state.name = "";
             state.image = null;
         },

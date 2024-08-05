@@ -13,5 +13,9 @@ export const endPoints = {
     blog: {
         allBlog: "/allblog",
         searchBlog: "/blogsearch",
+        singleBlog: "/singleblog",
+        singleComment: "/getblogcomment",
+        createComment: "/createblogcomment",
     },
+    userDash: "/userdash",
 };

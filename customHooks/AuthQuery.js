@@ -18,10 +18,12 @@ export const useLoginMutation = () => {
         mutationFn: login,
         onSuccess: (response) => {
             const { status, token, message } = response.data;
-            const { image, name, _id } = response.data.data;
+            const { image, name, _id, phone, email } = response.data.data;
             if (status === 200) {
                 toast.success(message);
-                dispatch(loginDetails({ image, name, _id, token }));
+                dispatch(
+                    loginDetails({ image, name, _id, token, phone, email })
+                );
                 router.push("/doctorList");
             }
         },

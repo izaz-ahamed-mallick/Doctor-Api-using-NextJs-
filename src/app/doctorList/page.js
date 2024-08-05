@@ -1,15 +1,63 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import bgImg from "../../../public/Images/DoctorPage.jpeg";
 import AboutUs from "../components/AboutUs";
 import BlogHome from "../components/BlogHome";
+import { useSearchParams } from "next/navigation";
 
-const page = () => {
+const Page = ({ params }) => {
+    const searchParams = useSearchParams();
+    const queryParams = searchParams.get("section");
+    const [isVisible, setIsVisible] = useState(false);
+
+    const aboutUsRef = useRef(null);
+    const blogHomeRef = useRef(null);
+    const homeRef = useRef(null);
+
+    useEffect(() => {
+        if (queryParams) {
+            switch (queryParams) {
+                case "home":
+                    homeRef.current?.scrollIntoView({ behavior: "smooth" });
+                    break;
+                case "aboutUs":
+                    aboutUsRef.current?.scrollIntoView({ behavior: "smooth" });
+                    break;
+                case "blogHome":
+                    blogHomeRef.current?.scrollIntoView({ behavior: "smooth" });
+                    break;
+                default:
+                    break;
+            }
+        }
+    }, [queryParams]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                // Adjust the scroll distance as needed
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     return (
         <div>
-            <div className="relative w-full h-screen overflow-hidden">
-                {/* Background Image */}
+            <div
+                ref={homeRef}
+                className="relative w-full h-screen overflow-hidden"
+            >
                 <div className="absolute inset-0">
                     <Image
                         src={bgImg}
@@ -19,8 +67,6 @@ const page = () => {
                         className="absolute inset-0"
                     />
                 </div>
-
-                {/* Overlay Content */}
                 <div className="relative flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-40 p-6 md:p-12">
                     <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
                         Welcome to Doctor Consult
@@ -36,10 +82,38 @@ const page = () => {
                     </Link>
                 </div>
             </div>
-            <AboutUs />
-            <BlogHome />
+            <div ref={aboutUsRef}>
+                <AboutUs />
+            </div>
+            <div ref={blogHomeRef}>
+                <BlogHome />
+            </div>
+            <div>
+                <button
+                    onClick={scrollToTop}
+                    className={`fixed bottom-20 right-4 w-12 h-12 animate-bounce bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 ease-in-out ${
+                        isVisible ? "opacity-100" : "opacity-0"
+                    }`}
+                    title="Scroll to top"
+                >
+                    <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M19 9l-7-7-7 7"
+                        />
+                    </svg>
+                </button>
+            </div>
         </div>
     );
 };
 
-export default page;
+export default Page;

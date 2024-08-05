@@ -28,26 +28,6 @@ button:disabled {
     opacity: 0.7;
 }
 
-@layer components {
-    .loaderPage {
-        @apply border-4 border-t-4 border-gray-200 border-t-blue-600 rounded-full w-12 h-12;
-        animation: spin2 1s linear infinite;
-    }
-
-    @keyframes spin2 {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .animate-spin-slow {
-        animation: spin2 3s linear infinite;
-    }
-}
-
 /* styles/globals.css */
 
 @keyframes shimmer {
@@ -69,4 +49,39 @@ button:disabled {
     );
     background-size: 1000px 100%;
     animation: shimmer 1.5s infinite;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a90e2;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #357abd;
+}
+
+/* Firefox Scrollbar Styles */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4a90e2 #f1f1f1;
+}
+
+/* Scrollbar Styles for Edge */
+* {
+    scrollbar-face-color: #4a90e2;
+    scrollbar-track-color: #f1f1f1;
+}
+
+.shadow-inner {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }

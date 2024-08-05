@@ -2,12 +2,12 @@ import React from "react";
 import axiosInstance from "../../axios/helper";
 import { endPoints } from "../../endPoints/endPoints";
 
-const getSearchBlog = async (searchQuery) => {
+const getComment = async (id) => {
     const response = await axiosInstance.get(
-        `${endPoints.blog.searchBlog}/${searchQuery}`
+        `${endPoints.blog.singleComment}/${id}`
     );
 
     return response.data.data;
 };
 
-export default getSearchBlog;
+export default getComment;

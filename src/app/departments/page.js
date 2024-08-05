@@ -44,7 +44,7 @@ const DepartmentsPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {data.map((dept) => (
                         <div
-                            key={dept.name}
+                            key={dept.departmentName}
                             className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 relative border border-gray-200"
                         >
                             <div className="relative h-48">
@@ -92,7 +92,7 @@ const DepartmentsPage = () => {
                                         onClick={() =>
                                             handleLearnMore(dept.departmentName)
                                         }
-                                        className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300"
+                                        className="bg-blue-600 text-white xl:px-4 xl:text-lg sm:px-2 px-2 py-2 md:px-1 md:py-2 md:text-sm   rounded-lg hover:bg-blue-700 transition duration-300"
                                     >
                                         {expandedDept === dept.departmentName
                                             ? "Show Less"
@@ -100,7 +100,7 @@ const DepartmentsPage = () => {
                                     </button>
                                     <Link
                                         href={`/doctor/${dept.departmentName}/${dept._id}`}
-                                        className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300"
+                                        className="bg-green-600 text-white xl:px-4 xl:text-lg sm:px-2 px-2 py-2 md:px-1 md:py-2 md:text-sm   rounded-lg hover:bg-green-700 transition duration-300"
                                     >
                                         Check Our Doctor
                                     </Link>

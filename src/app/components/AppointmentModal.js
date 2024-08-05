@@ -1,8 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { RxCrossCircled } from "react-icons/rx";
+
 import LoadingButton from "../../../Utils/LoadingButton";
-import { isPending } from "@reduxjs/toolkit";
+
+import Image from "next/image";
+import crossIcon from "../../../public/Images/crossicon2.png";
 
 const AppointmentModal = ({
     isOpen,
@@ -30,10 +32,15 @@ const AppointmentModal = ({
                         Book Appointment
                     </h2>
                     <button
-                        className="text-gray-500 text-4xl hover:text-gray-700"
                         onClick={onRequestClose}
+                        className={` text-white hover:text-gray-300 transition duration-300 ease-in-out`}
                     >
-                        <RxCrossCircled />
+                        <Image
+                            src={crossIcon}
+                            alt={"Close"}
+                            width={60}
+                            height={60}
+                        />
                     </button>
                 </div>
                 <form

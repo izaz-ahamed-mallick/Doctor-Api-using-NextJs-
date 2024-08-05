@@ -13,6 +13,7 @@ import img4 from "../../public/Images/img4.jpeg";
 import img5 from "../../public/Images/img5.jpeg";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const images = [
     { src: img1, text: "Welcome to Our Clinic" },
@@ -23,7 +24,12 @@ const images = [
 ];
 
 export default function Home() {
+    const [isClient, setIsClient] = useState(false);
     const isAuthenticate = useSelector((state) => state.Auth.isAuthenticate);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     return (
         <div className="w-full h-[700px] relative">
             <Swiper
@@ -42,26 +48,27 @@ export default function Home() {
                             <Image
                                 src={image.src}
                                 alt={`Slide ${index}`}
-                                className="rounded-lg "
+                                className="rounded-lg  "
                                 fill
+                                priority
                                 style={{ objectFit: "cover" }}
                                 placeholder="blur"
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                                 <div className="bg-black bg-opacity-50 text-white p-4 rounded-md text-center mb-4">
-                                    <h2 className="text-6xl font-bold">
+                                    <h2 className="md:text-6xl sm:text-4xl text-xl font-bold">
                                         {image.text}
                                     </h2>
                                 </div>
-                                {isAuthenticate ? (
+                                {isAuthenticate && isClient ? (
                                     <Link href="/doctorList">
-                                        <button className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="bg-blue-500 md:text-xl text-md text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
                                             View Our Service
                                         </button>
                                     </Link>
                                 ) : (
                                     <Link href="/auth/login">
-                                        <button className="bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="bg-blue-500 md:text-xl text-md text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
                                             Login to Take Service
                                         </button>
                                     </Link>

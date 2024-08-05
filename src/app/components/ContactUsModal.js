@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import LoadingButton from "../../../Utils/LoadingButton";
 import axiosInstance from "../../../api/axios/helper";
 import { useContactUs } from "../../../customHooks/DoctorQuery";
+import crossIcon from "../../../public/Images/crossicon2.png";
+import Image from "next/image";
 
 const ContactUsModal = ({ isOpen, onClose }) => {
     const {
@@ -15,7 +17,6 @@ const ContactUsModal = ({ isOpen, onClose }) => {
     const { mutate, isPending, isSuccess, isPaused } = useContactUs();
 
     const onSubmit = (data) => {
-        console.log(data);
         const formData = new FormData();
         formData.append("name", data.name);
         formData.append("email", data.email);
@@ -38,9 +39,14 @@ const ContactUsModal = ({ isOpen, onClose }) => {
                     </h2>
                     <button
                         onClick={onClose}
-                        className="text-gray-600 hover:text-gray-900"
+                        className={` text-white hover:text-gray-300 transition duration-300 ease-in-out`}
                     >
-                        &times;
+                        <Image
+                            src={crossIcon}
+                            alt={"Close"}
+                            width={60}
+                            height={60}
+                        />
                     </button>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>

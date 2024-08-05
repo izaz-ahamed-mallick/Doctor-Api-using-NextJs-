@@ -53,19 +53,20 @@ const Signup = () => {
                 alt="Signup Background"
                 fill
                 priority
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 className="z-0"
             />
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md backdrop-blur-0 bg-opacity-80 z-10">
+            <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-lg shadow-lg w-full max-w-xs sm:max-w-xs md:max-w-md lg:max-w-md my-3 backdrop-blur-0 bg-opacity-80 z-10">
                 <div className="flex justify-center mb-4">
                     <Image
                         src={logo}
                         alt="DoctorConsult Logo"
                         width={100}
                         height={100}
+                        style={{ width: "auto", height: "auto" }}
                     />
                 </div>
-                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">
                     Register for DoctorConsult
                 </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -82,7 +83,7 @@ const Signup = () => {
                             })}
                             type="text"
                             id="name"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your name"
                         />
                         {errors.name && (
@@ -108,7 +109,7 @@ const Signup = () => {
                             })}
                             type="email"
                             id="email"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your email"
                         />
                         {errors.email && (
@@ -119,7 +120,7 @@ const Signup = () => {
                     </div>
                     <div className="mb-4">
                         <label
-                            className="block text-gray-700 text-sm font-semibold mb-2"
+                            className="block  text-gray-700 text-sm font-semibold mb-2"
                             htmlFor="phone"
                         >
                             Phone
@@ -134,7 +135,7 @@ const Signup = () => {
                             })}
                             type="tel"
                             id="phone"
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your phone number"
                         />
                         {errors.phone && (
@@ -143,7 +144,7 @@ const Signup = () => {
                             </p>
                         )}
                     </div>
-                    <div className="mb-4 ">
+                    <div className="mb-4">
                         <label
                             className="block text-gray-700 text-sm font-semibold mb-2"
                             htmlFor="password"
@@ -162,11 +163,11 @@ const Signup = () => {
                                 })}
                                 type={passwordVisible ? "text" : "password"}
                                 id="password"
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Enter your password"
                             />
                             <div
-                                className="absolute top-2 right-0 pr-3 flex items-center  cursor-pointer"
+                                className="absolute top-2 right-0 pr-3 flex items-center cursor-pointer"
                                 onClick={togglePasswordVisibility}
                             >
                                 {passwordVisible ? (
@@ -201,7 +202,7 @@ const Signup = () => {
                                     confirmPasswordVisible ? "text" : "password"
                                 }
                                 id="confirm-password"
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Confirm your password"
                             />
                             <div
@@ -233,7 +234,7 @@ const Signup = () => {
                             type="file"
                             id="image"
                             accept="image/*"
-                            className="block w-full text-sm text-gray-500
+                            className="block w-full  sm:text-md md:text-lg  text-sm text-gray-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
                                 file:text-sm file:font-semibold
@@ -247,21 +248,22 @@ const Signup = () => {
                                 alt="Profile"
                                 width={128} // Adjust width as needed
                                 height={128} // Adjust height as needed
-                                className="mt-4 rounded-full w-32 h-32 object-cover mx-auto"
+                                className="mt-4 rounded-full w-24 h-24 sm:w-32 sm:h-32 object-cover mx-auto"
                             />
                         )}
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-col md:flex-row  items-center justify-between">
                         <LoadingButton
                             type="submit"
                             isLoading={isPending}
                             bgCol={"bg-green-600"}
                             hoverCol={"bg-green-700"}
+                            className="w-full sm:w-auto"
                         >
                             Sign Up
                         </LoadingButton>
                         <Link href="/auth/login" legacyBehavior>
-                            <a className="inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800 transition duration-300">
+                            <a className="mt-4 sm:mt-0 inline-block align-baseline font-bold text-sm text-blue-600 hover:text-blue-800 transition duration-300">
                                 Already have an account? Login
                             </a>
                         </Link>

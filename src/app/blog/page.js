@@ -1,18 +1,14 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import blogPlaceholder from "../../../public/Images/BlogHome.jpeg";
+import blogPlaceholder from "../../../public/Images/singleBlog.jpeg";
 import HeroSection from "../components/HeroSection";
-import {
-    useAllBlog,
-    useGetSearchBlog,
-} from "../../../customHooks/globalHooks/BlogQuery";
+import { useAllBlog, useGetSearchBlog } from "../../../customHooks/BlogQuery";
 import Loader from "../components/Loader";
 import { imgPath } from "../../../api/axios/helper";
 import Pagination from "../components/Pagination";
-import { debounce } from "lodash";
 
 const Page = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -80,11 +76,11 @@ const Page = () => {
                             placeholder="Search blogs..."
                             value={searchQuery}
                             onChange={handleInputChange}
-                            className="w-full max-w-md border border-gray-300 rounded-l-lg py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full max-w-md border border-gray-300 rounded-l-lg py-2 md:px-4 px-2 text-sm md:text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <button
                             onClick={handleSearch}
-                            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-r-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                            className="bg-blue-500 hover:bg-blue-600 text-white py-2 md:px-4 px-2 md:text-lg text-sm rounded-r-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
                         >
                             Search
                         </button>
@@ -92,7 +88,7 @@ const Page = () => {
                         <select
                             value={selectBlog}
                             onChange={handleFilterChange}
-                            className="border border-gray-300 rounded-lg py-2 px-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border border-gray-300 rounded-lg py-2 md:px-4 px-1 text-sm md:text-lg  text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="allblog">All Blogs</option>
                             <option value="recentblog">Recent Blogs</option>
