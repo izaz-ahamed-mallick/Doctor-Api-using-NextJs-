@@ -1,44 +1,21 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { Suspense, useEffect, useState } from "react";
+
 import bgImg from "../../../public/Images/DoctorPage.jpeg";
 import AboutUs from "../components/AboutUs";
 import BlogHome from "../components/BlogHome";
-import { useSearchParams } from "next/navigation";
+import ScrollToSection from "../components/ScrollToSection";
+import Loader from "../components/Loader";
 
-const Page = ({ params }) => {
-    const searchParams = useSearchParams();
-    const queryParams = searchParams.get("section");
+const Page = () => {
+    const { homeRef, aboutUsRef, blogHomeRef } = ScrollToSection();
     const [isVisible, setIsVisible] = useState(false);
-
-    const aboutUsRef = useRef(null);
-    const blogHomeRef = useRef(null);
-    const homeRef = useRef(null);
-
-    useEffect(() => {
-        if (queryParams) {
-            switch (queryParams) {
-                case "home":
-                    homeRef.current?.scrollIntoView({ behavior: "smooth" });
-                    break;
-                case "aboutUs":
-                    aboutUsRef.current?.scrollIntoView({ behavior: "smooth" });
-                    break;
-                case "blogHome":
-                    blogHomeRef.current?.scrollIntoView({ behavior: "smooth" });
-                    break;
-                default:
-                    break;
-            }
-        }
-    }, [queryParams]);
 
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 300) {
-                // Adjust the scroll distance as needed
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -48,12 +25,13 @@ const Page = ({ params }) => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
-        <div>
+        <Suspense fallback={<div>Loading...</div>}>
             <div
                 ref={homeRef}
                 className="relative w-full h-screen overflow-hidden"
@@ -82,7 +60,13 @@ const Page = ({ params }) => {
                     </Link>
                 </div>
             </div>
-            <Suspense>
+            <Suspense
+                fallback={
+                    <div>
+                        <Loader />
+                    </div>
+                }
+            >
                 <div ref={aboutUsRef}>
                     <AboutUs />
                 </div>
@@ -114,7 +98,7 @@ const Page = ({ params }) => {
                     </svg>
                 </button>
             </div>
-        </div>
+        </Suspense>
     );
 };
 
