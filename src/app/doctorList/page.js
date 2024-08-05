@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import bgImg from "../../../public/Images/DoctorPage.jpeg";
 import AboutUs from "../components/AboutUs";
@@ -9,17 +9,13 @@ import BlogHome from "../components/BlogHome";
 import ScrollToSection from "../components/ScrollToSection";
 import Loader from "../components/Loader";
 
-const Page = () => {
+const DoctorList = () => {
     const { homeRef, aboutUsRef, blogHomeRef } = ScrollToSection();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
+            setIsVisible(window.scrollY > 300);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -31,7 +27,7 @@ const Page = () => {
     };
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <div>
             <div
                 ref={homeRef}
                 className="relative w-full h-screen overflow-hidden"
@@ -60,46 +56,46 @@ const Page = () => {
                     </Link>
                 </div>
             </div>
-            <Suspense
-                fallback={
-                    <div>
-                        <Loader />
-                    </div>
-                }
-            >
-                <div ref={aboutUsRef}>
+            <div ref={aboutUsRef}>
+                <React.Suspense fallback={<Loader />}>
                     <AboutUs />
-                </div>
-                <div ref={blogHomeRef}>
-                    <BlogHome />
-                </div>
-            </Suspense>
-            <div>
-                <button
-                    onClick={scrollToTop}
-                    className={`fixed bottom-20 right-4 w-12 h-12 animate-bounce bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 ease-in-out ${
-                        isVisible ? "opacity-100" : "opacity-0"
-                    }`}
-                    title="Scroll to top"
-                >
-                    <svg
-                        className="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M19 9l-7-7-7 7"
-                        />
-                    </svg>
-                </button>
+                </React.Suspense>
             </div>
-        </Suspense>
+            <div ref={blogHomeRef}>
+                <React.Suspense fallback={<Loader />}>
+                    <BlogHome />
+                </React.Suspense>
+            </div>
+            <button
+                onClick={scrollToTop}
+                className={`fixed bottom-20 right-4 w-12 h-12 animate-bounce bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 ease-in-out ${
+                    isVisible ? "opacity-100" : "opacity-0"
+                }`}
+                title="Scroll to top"
+            >
+                <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7-7-7 7"
+                    />
+                </svg>
+            </button>
+        </div>
     );
 };
 
-export default Page;
+const DoctorListPage = () => (
+    <React.Suspense fallback={<div>Loading...</div>}>
+        <DoctorList />
+    </React.Suspense>
+);
+
+export default DoctorListPage;
