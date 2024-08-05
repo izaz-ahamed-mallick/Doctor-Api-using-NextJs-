@@ -5,7 +5,7 @@ import { useGetSingleBlog } from "../../../../customHooks/BlogQuery";
 import Loader from "@/app/components/Loader";
 import HeroSection from "@/app/components/HeroSection";
 import { imgPath } from "../../../../api/axios/helper";
-import blogPlaceholder from "../../../../public/Images/singleBLog.jpeg";
+import blogPlaceholder from "../../../../public/Images/singleBlog.jpeg";
 import CommentSection from "@/app/components/CommentSection/AllComment";
 import { useRouter } from "next/navigation";
 
