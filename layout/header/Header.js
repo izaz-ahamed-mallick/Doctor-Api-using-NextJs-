@@ -7,7 +7,7 @@ import { logOutDetails } from "../../Store/AuthSlice";
 import logo from "../../public/Images/logo.png";
 import icon from "../../public/Images/icon2.png";
 import crossicon from "../../public/Images/crossicon2.png";
-import { imgPath } from "../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../api/axios/helper";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { scrollToSection } from "../../Store/ScrollSlice";
@@ -112,7 +112,11 @@ const Header = () => {
                                         width={40}
                                         height={40}
                                         priority
-                                        src={`${imgPath}${image}` || "no Image"}
+                                        src={
+                                            `${imgPath}${sanitizeImagePath(
+                                                image
+                                            )}` || "no Image"
+                                        }
                                         alt={name.toUpperCase()}
                                         className="rounded-full border-2 border-gray-300 shadow-inner"
                                     />

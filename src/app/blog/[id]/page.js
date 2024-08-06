@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useGetSingleBlog } from "../../../../customHooks/BlogQuery";
 import Loader from "@/app/components/Loader";
 import HeroSection from "@/app/components/HeroSection";
-import { imgPath } from "../../../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../../../api/axios/helper";
 import blogPlaceholder from "../../../../public/Images/singleBlog.jpeg";
 import CommentSection from "@/app/components/CommentSection/AllComment";
 import { useRouter } from "next/navigation";
@@ -38,7 +38,10 @@ const SingleBlogPage = ({ params }) => {
                         <Image
                             fill
                             style={{ objectFit: "cover" }}
-                            src={imgPath + data.image || blogPlaceholder}
+                            src={
+                                imgPath + sanitizeImagePath(data.image) ||
+                                blogPlaceholder
+                            }
                             alt={data.title}
                             className="absolute inset-0 object-cover"
                         />

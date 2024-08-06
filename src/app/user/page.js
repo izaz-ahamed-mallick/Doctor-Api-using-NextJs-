@@ -4,7 +4,7 @@ import React from "react";
 import { useGetUserDetails } from "../../../customHooks/UserDetails";
 import { Cookies } from "react-cookie";
 import Loader from "../components/Loader";
-import { imgPath } from "../../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../../api/axios/helper";
 import { AiOutlineCheckCircle, AiOutlineClockCircle } from "react-icons/ai";
 
 const UserDashboard = () => {
@@ -57,7 +57,10 @@ const UserDashboard = () => {
                                         <Image
                                             src={
                                                 imgPath +
-                                                appointment?.doctor_id?.image
+                                                sanitizeImagePath(
+                                                    appointment?.doctor_id
+                                                        ?.image
+                                                )
                                             }
                                             alt={appointment?.doctor_id?.name}
                                             fill

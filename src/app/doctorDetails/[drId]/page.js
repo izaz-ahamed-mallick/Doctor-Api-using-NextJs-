@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useDoctorDetails } from "../../../../customHooks/DoctorQuery";
-import { imgPath } from "../../../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../../../api/axios/helper";
 import HeroSection from "@/app/components/HeroSection";
 import { useRouter } from "next/navigation";
 import img from "../../../../public/Images/details2.jpeg";
@@ -57,7 +57,8 @@ const DoctorDetailsPage = ({ params }) => {
                             <div className="flex-shrink-0 w-32 h-32 relative">
                                 <Image
                                     src={
-                                        imgPath + doctor.image ||
+                                        imgPath +
+                                            sanitizeImagePath(doctor.image) ||
                                         "/default-doctor-image.jpg"
                                     }
                                     alt={doctor.name}

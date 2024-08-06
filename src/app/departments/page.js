@@ -2,7 +2,7 @@
 import Image from "next/image";
 import departmentImage from "../../../public/Images/department1.jpeg";
 import { useGetAllDepartment } from "../../../customHooks/DoctorQuery";
-import { imgPath } from "../../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../../api/axios/helper";
 import { useState } from "react";
 import Link from "next/link";
 import HeroSection from "../components/HeroSection";
@@ -50,7 +50,10 @@ const DepartmentsPage = () => {
                             <div className="relative h-48">
                                 {dept.image ? (
                                     <Image
-                                        src={imgPath + dept.image}
+                                        src={
+                                            imgPath +
+                                            sanitizeImagePath(dept.image)
+                                        }
                                         alt={dept.departmentName}
                                         fill
                                         sizes="(max-width: 768px) 100vw, 

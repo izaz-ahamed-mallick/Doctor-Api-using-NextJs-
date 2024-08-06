@@ -8,6 +8,7 @@ import { useRegistrationMutation } from "../../../../customHooks/AuthQuery";
 import LoadingButton from "../../../../Utils/LoadingButton";
 import loginBg from "../../../../public/Images/signUpBg.jpeg";
 import logo from "../../../../public/Images/logo.png";
+import { imgPath, sanitizeImagePath } from "../../../../api/axios/helper";
 
 const Signup = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -244,7 +245,7 @@ const Signup = () => {
                         />
                         {image && (
                             <Image
-                                src={image}
+                                src={imgPath + sanitizeImagePath(image)}
                                 alt="Profile"
                                 width={128} // Adjust width as needed
                                 height={128} // Adjust height as needed

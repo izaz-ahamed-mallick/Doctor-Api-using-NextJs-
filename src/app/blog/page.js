@@ -7,7 +7,7 @@ import blogPlaceholder from "../../../public/Images/singleBlog.jpeg";
 import HeroSection from "../components/HeroSection";
 import { useAllBlog, useGetSearchBlog } from "../../../customHooks/BlogQuery";
 import Loader from "../components/Loader";
-import { imgPath } from "../../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../../api/axios/helper";
 import Pagination from "../components/Pagination";
 
 const Page = () => {
@@ -70,25 +70,27 @@ const Page = () => {
             <div className="flex flex-col items-center py-12 px-6">
                 <section className="bg-white shadow-lg rounded-lg p-8 max-w-4xl w-full text-gray-800">
                     {/* Search and Filter */}
-                    <div className="mb-8 flex justify-center items-center space-x-4 shadow-2xl p-4 rounded-full">
-                        <input
-                            type="text"
-                            placeholder="Search blogs..."
-                            value={searchQuery}
-                            onChange={handleInputChange}
-                            className="w-full max-w-md border border-gray-300 rounded-l-lg py-2 md:px-4 px-2 text-sm md:text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                        <button
-                            onClick={handleSearch}
-                            className="bg-blue-500 hover:bg-blue-600 text-white py-2 md:px-4 px-2 md:text-lg text-sm rounded-r-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
-                        >
-                            Search
-                        </button>
+                    <div className="mb-8 flex justify-center flex-col md:flex-row gap-3 md:gap-0 items-center space-x-4 shadow-2xl p-4 rounded-full">
+                        <div className="flex  gap-4 w-full">
+                            <input
+                                type="text"
+                                placeholder="Search blogs..."
+                                value={searchQuery}
+                                onChange={handleInputChange}
+                                className="w-full max-w-md border border-gray-300 rounded-l-lg py-2 md:px-4 px-2 text-sm md:text-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <button
+                                onClick={handleSearch}
+                                className="bg-blue-500 hover:bg-blue-600 text-white py-2 md:px-4 px-2 md:text-lg text-xs rounded-r-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                            >
+                                Search
+                            </button>
+                        </div>
 
                         <select
                             value={selectBlog}
                             onChange={handleFilterChange}
-                            className="border border-gray-300 rounded-lg py-2 md:px-4 px-1 text-sm md:text-lg  text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border border-gray-300 rounded-lg py-2 md:px-4 px-1 text-xs md:text-lg  text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
                             <option value="allblog">All Blogs</option>
                             <option value="recentblog">Recent Blogs</option>
@@ -108,8 +110,10 @@ const Page = () => {
                                                 fill
                                                 style={{ objectFit: "cover" }}
                                                 src={
-                                                    imgPath + blog.image ||
-                                                    blogPlaceholder
+                                                    imgPath +
+                                                        sanitizeImagePath(
+                                                            blog.image
+                                                        ) || blogPlaceholder
                                                 }
                                                 alt={blog.title}
                                                 className="absolute inset-0 object-cover"

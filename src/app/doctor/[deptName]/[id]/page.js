@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 import Image from "next/image";
-import { imgPath } from "../../../../../api/axios/helper";
+import { imgPath, sanitizeImagePath } from "../../../../../api/axios/helper";
 import Link from "next/link";
 
 import departmentDocImge from "../../../../../public/Images/Designer (5).jpeg";
@@ -84,7 +84,10 @@ const DoctorPage = ({ params }) => {
                             <div className="relative h-64">
                                 {doctor.image ? (
                                     <Image
-                                        src={imgPath + doctor.image}
+                                        src={
+                                            imgPath +
+                                            sanitizeImagePath(doctor.image)
+                                        }
                                         alt={doctor.name}
                                         fill
                                         priority
