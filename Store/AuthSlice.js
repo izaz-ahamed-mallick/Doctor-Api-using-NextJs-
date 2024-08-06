@@ -7,12 +7,13 @@ const AuthSlice = createSlice({
     name: "Auth",
     initialState: {
         name: cookie.get("name"),
-        image: cookie.get("image"),
+        image: decodeURIComponent(cookie.get("image")),
         isAuthenticate: !!cookie.get("token"),
     },
     reducers: {
         loginDetails: (state, action) => {
             const { name, token, image, _id, phone, email } = action.payload;
+
             cookie.set("name", name, { path: "/" });
             cookie.set("image", image, { path: "/" });
             cookie.set("token", token, { path: "/" });

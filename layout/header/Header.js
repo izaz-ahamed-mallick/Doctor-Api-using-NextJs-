@@ -7,10 +7,10 @@ import { logOutDetails } from "../../Store/AuthSlice";
 import logo from "../../public/Images/logo.png";
 import icon from "../../public/Images/icon2.png";
 import crossicon from "../../public/Images/crossicon2.png";
+import userIcon from "../../public/Images/userIcon.jpeg";
 import { imgPath, sanitizeImagePath } from "../../api/axios/helper";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { scrollToSection } from "../../Store/ScrollSlice";
 
 const Header = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,6 +56,7 @@ const Header = () => {
         <header className="bg-blue-900 text-white shadow-lg ">
             <div className="container  mx-auto flex items-center justify-between p-4 h-[80px]">
                 {/* Logo Section */}
+
                 <Link href="/" className="flex items-center space-x-2">
                     <Image
                         priority
@@ -111,11 +112,7 @@ const Header = () => {
                                         width={40}
                                         height={40}
                                         priority
-                                        src={
-                                            `${imgPath}${sanitizeImagePath(
-                                                image
-                                            )}` || "no Image"
-                                        }
+                                        src={userIcon}
                                         alt={name.toUpperCase()}
                                         className="rounded-full border-2 border-gray-300 shadow-inner"
                                     />
