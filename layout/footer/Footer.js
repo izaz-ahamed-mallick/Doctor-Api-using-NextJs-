@@ -8,8 +8,20 @@ import {
 } from "react-icons/fa";
 import logo from "../../public/Images/logo.png";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+    const router = useRouter();
+    const [isClient, setIsClient] = useState(false);
+    const navigateToSection = (section) => {
+        router.push(`/doctorList?section=${section}`);
+    };
+    const isAuthenticate = useSelector((state) => state.Auth.isAuthenticate);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
     return (
         <footer className="bg-gray-900 text-white py-8">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
@@ -28,40 +40,46 @@ const Footer = () => {
                         <h2 className="text-lg font-semibold mb-4">
                             Quick Links
                         </h2>
-                        <ul className="space-y-2">
-                            <li>
-                                <Link
-                                    href="/"
-                                    className="text-gray-300 hover:text-white"
+                        {isAuthenticate && isClient && (
+                            <ul className="space-y-2">
+                                <li onClick={() => navigateToSection("home")}>
+                                    <button className="text-gray-300 hover:text-white">
+                                        Home
+                                    </button>
+                                </li>
+                                <li
+                                    onClick={() =>
+                                        navigateToSection("blogHome")
+                                    }
                                 >
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/about"
-                                    className="text-gray-300 hover:text-white"
+                                    <button className="text-gray-300 hover:text-white">
+                                        Blog
+                                    </button>
+                                </li>
+                                <li
+                                    onClick={() => navigateToSection("aboutUs")}
                                 >
-                                    About Us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/services"
-                                    className="text-gray-300 hover:text-white"
+                                    <button className="text-gray-300 hover:text-white">
+                                        About Us
+                                    </button>
+                                </li>
+                                <li>
+                                    <Link
+                                        href="/departments"
+                                        className="text-gray-300 hover:text-white"
+                                    >
+                                        Services
+                                    </Link>
+                                </li>
+                                <li
+                                    onClick={() => navigateToSection("aboutUs")}
                                 >
-                                    Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/contact"
-                                    className="text-gray-300 hover:text-white"
-                                >
-                                    Contact
-                                </Link>
-                            </li>
-                        </ul>
+                                    <button className="text-gray-300 hover:text-white">
+                                        Contact
+                                    </button>
+                                </li>
+                            </ul>
+                        )}
                     </div>
 
                     {/* Additional Links or Information */}

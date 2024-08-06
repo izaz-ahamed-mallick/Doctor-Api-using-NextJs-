@@ -40,7 +40,7 @@ const Header = () => {
         toast.success("Logout successfully complete");
         setMobileMenuOpen(false);
         dispatch(logOutDetails());
-        router.push("/auth/login");
+        router.push("/");
         setDropdownOpen(false);
     };
 
@@ -50,7 +50,6 @@ const Header = () => {
 
     const navigateToSection = (section) => {
         router.push(`/doctorList?section=${section}`);
-        setMobileMenuOpen(false);
     };
 
     return (
@@ -74,7 +73,7 @@ const Header = () => {
                     <nav className="hidden xs:hidden lg:flex   md:hidden space-x-6 mx-auto">
                         <div
                             onClick={() => navigateToSection("home")}
-                            className="relative group text-xl font-semibold px-4 py-2 text-white cursor-pointer  hover:text-blue-300 transition-colors duration-300 ease-in-out"
+                            className="relative group text-md font-semibold px-4 py-2 text-white cursor-pointer  hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">HOME</span>
                             <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
@@ -82,7 +81,7 @@ const Header = () => {
                         </div>
                         <div
                             onClick={() => navigateToSection("aboutUs")}
-                            className="relative group text-xl font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
+                            className="relative group text-md font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">ABOUT US</span>
                             <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
@@ -90,7 +89,7 @@ const Header = () => {
                         </div>
                         <div
                             onClick={() => navigateToSection("blogHome")}
-                            className="relative group text-xl font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
+                            className="relative group text-md font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">BLOG</span>
                             <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
