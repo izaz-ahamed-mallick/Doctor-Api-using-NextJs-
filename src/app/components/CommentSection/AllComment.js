@@ -6,7 +6,7 @@ import {
 import Comment from "./comment";
 import { useForm } from "react-hook-form";
 import { Cookies } from "react-cookie";
-import LoadingButton from "../../../../Utils/LoadingButton";
+import LoadingButton from "../../Utils/LoadingButton";
 
 const CommentSection = ({ id }) => {
     const cookie = new Cookies();

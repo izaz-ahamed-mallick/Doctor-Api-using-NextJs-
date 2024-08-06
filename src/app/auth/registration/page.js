@@ -5,7 +5,7 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useRegistrationMutation } from "../../../../customHooks/AuthQuery";
-import LoadingButton from "../../../../Utils/LoadingButton";
+import LoadingButton from "../../Utils/LoadingButton";
 import loginBg from "../../../../public/Images/signUpBg.jpeg";
 import logo from "../../../../public/Images/logo.png";
 import { imgPath, sanitizeImagePath } from "../../../../api/axios/helper";
@@ -57,7 +57,7 @@ const Signup = () => {
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 className="z-0"
             />
-            <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-lg shadow-lg w-full max-w-xs sm:max-w-xs md:max-w-md lg:max-w-md my-3 backdrop-blur-0 bg-opacity-80 z-10">
+            <div className="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-lg shadow-lg  max-w-xs sm:max-w-xs md:max-w-md lg:max-w-md my-3 backdrop-blur-0 bg-opacity-80 z-10">
                 <div className="flex justify-center mb-4">
                     <Image
                         src={logo}
@@ -245,7 +245,7 @@ const Signup = () => {
                         />
                         {image && (
                             <Image
-                                src={imgPath + sanitizeImagePath(image)}
+                                src={image}
                                 alt="Profile"
                                 width={128} // Adjust width as needed
                                 height={128} // Adjust height as needed

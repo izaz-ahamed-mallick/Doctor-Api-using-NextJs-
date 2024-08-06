@@ -1,10 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-        "layout/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}", // Tailwind CSS files in the app folder
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}", // Tailwind CSS files in components
+        "./layout/**/*.{js,ts,jsx,tsx,mdx}", // Tailwind CSS files in the layout folder at the root level
     ],
     theme: {
         extend: {

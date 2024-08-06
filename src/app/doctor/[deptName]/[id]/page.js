@@ -16,7 +16,7 @@ import {
 import Loader from "@/app/components/Loader";
 import AppointmentModal from "@/app/components/AppointmentModal";
 import { Cookies } from "react-cookie";
-import LoadingButton from "../../../../../Utils/LoadingButton";
+import LoadingButton from "../../../Utils/LoadingButton";
 
 const DoctorPage = ({ params }) => {
     const { mutate, isPending } = useCreateAppoinment();

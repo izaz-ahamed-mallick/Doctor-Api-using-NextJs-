@@ -43,7 +43,7 @@ export const useRegistrationMutation = () => {
 
             if (response.status === 200) {
                 toast.success(message);
-                router.push("auth/login");
+                router.push("/auth/login");
             }
         },
         onError: (error) => {

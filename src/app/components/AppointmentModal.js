@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import LoadingButton from "../../../Utils/LoadingButton";
+import LoadingButton from "../Utils/LoadingButton";
 
 import Image from "next/image";
 import crossIcon from "../../../public/Images/crossicon2.png";

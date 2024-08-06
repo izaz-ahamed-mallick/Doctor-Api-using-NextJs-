@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useLoginMutation } from "../../../../customHooks/AuthQuery";
-import LoadingButton from "../../../../Utils/LoadingButton";
+import LoadingButton from "../../Utils/LoadingButton";
 import Image from "next/image";
 import loginBg from "../../../../public/Images/loginBg.jpeg";
 import logo from "../../../../public/Images/logo.png";
