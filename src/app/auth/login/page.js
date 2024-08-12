@@ -31,7 +31,7 @@ const Login = () => {
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 className="z-0"
             />
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md backdrop-blur-0 bg-opacity-80 z-10">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-sm backdrop-blur-0 bg-opacity-80 z-10">
                 <div className="flex justify-center mb-4">
                     <Image
                         src={logo}

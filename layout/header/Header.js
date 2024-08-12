@@ -50,6 +50,8 @@ const Header = () => {
 
     const navigateToSection = (section) => {
         router.push(`/doctorList?section=${section}`);
+        setMobileMenuOpen(false);
+        setDropdownOpen(false);
     };
 
     return (
