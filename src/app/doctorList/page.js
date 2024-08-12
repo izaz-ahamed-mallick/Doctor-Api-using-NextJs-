@@ -50,7 +50,7 @@ const DoctorList = () => {
                     </p>
                     <Link
                         href="/departments"
-                        className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg shadow-lg text-lg md:text-xl transition duration-300 ease-in-out"
+                        className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg shadow-lg text-md md:text-md transition duration-300 ease-in-out"
                     >
                         Explore Our Departments
                     </Link>

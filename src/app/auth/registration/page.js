@@ -67,7 +67,7 @@ const Signup = () => {
                         style={{ width: "auto", height: "auto" }}
                     />
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">
+                <h2 className="text-2xl sm:text-2xl font-bold mb-6 text-center text-gray-800">
                     Register for DoctorConsult
                 </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -84,7 +84,7 @@ const Signup = () => {
                             })}
                             type="text"
                             id="name"
-                            className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-md  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your name"
                         />
                         {errors.name && (
@@ -110,7 +110,7 @@ const Signup = () => {
                             })}
                             type="email"
                             id="email"
-                            className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-md  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your email"
                         />
                         {errors.email && (
@@ -136,7 +136,7 @@ const Signup = () => {
                             })}
                             type="tel"
                             id="phone"
-                            className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-md  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your phone number"
                         />
                         {errors.phone && (
@@ -164,7 +164,7 @@ const Signup = () => {
                                 })}
                                 type={passwordVisible ? "text" : "password"}
                                 id="password"
-                                className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="shadow text-sm sm:text-md md:text-md  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Enter your password"
                             />
                             <div
@@ -203,7 +203,7 @@ const Signup = () => {
                                     confirmPasswordVisible ? "text" : "password"
                                 }
                                 id="confirm-password"
-                                className="shadow text-sm sm:text-md md:text-lg  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="shadow text-sm sm:text-md md:text-md  appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Confirm your password"
                             />
                             <div
@@ -235,7 +235,7 @@ const Signup = () => {
                             type="file"
                             id="image"
                             accept="image/*"
-                            className="block w-full  sm:text-md md:text-lg  text-sm text-gray-500
+                            className="block w-full  sm:text-md md:text-md  text-sm text-gray-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
                                 file:text-sm file:font-semibold

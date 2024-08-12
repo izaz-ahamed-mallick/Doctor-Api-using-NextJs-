@@ -56,19 +56,19 @@ export default function Home() {
                             />
                             <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
                                 <div className="bg-black bg-opacity-50 text-white p-4 rounded-md text-center mb-4">
-                                    <h2 className="md:text-6xl sm:text-4xl text-xl font-bold">
+                                    <h2 className="md:text-4xl sm:text-4xl text-xl font-bold">
                                         {image.text}
                                     </h2>
                                 </div>
                                 {isAuthenticate && isClient ? (
                                     <Link href="/doctorList">
-                                        <button className="bg-blue-500 md:text-xl text-md text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="bg-blue-500 md:text-md text-md text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
                                             View Our Service
                                         </button>
                                     </Link>
                                 ) : (
                                     <Link href="/auth/login">
-                                        <button className="bg-blue-500 md:text-xl text-md text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
+                                        <button className="bg-blue-500 md:text-md text-md text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300">
                                             Login to Take Service
                                         </button>
                                     </Link>

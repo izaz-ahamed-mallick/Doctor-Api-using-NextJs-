@@ -41,7 +41,7 @@ const Login = () => {
                         style={{ width: "auto", height: "auto" }}
                     />
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">
+                <h2 className="text-2xl md:text-2xl font-bold mb-6 text-center text-gray-800">
                     Login to DoctorConsult
                 </h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -62,7 +62,7 @@ const Login = () => {
                             })}
                             type="email"
                             id="email"
-                            className="shadow text-sm sm:text-md md:text-lg appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-md appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your email"
                         />
                         {errors.email && (
@@ -89,7 +89,7 @@ const Login = () => {
                             })}
                             type="password"
                             id="password"
-                            className="shadow text-sm sm:text-md md:text-lg appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="shadow text-sm sm:text-md md:text-md appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             placeholder="Enter your password"
                         />
                         {errors.password && (

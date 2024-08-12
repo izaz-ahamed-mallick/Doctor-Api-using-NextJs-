@@ -16,7 +16,7 @@ const LoadingButton = ({ isLoading, children, bgCol, hoverCol, ...props }) => {
             <span
                 className={`${
                     isLoading ? "opacity-0" : "opacity-100"
-                } text-md md:text-xl`}
+                } text-md md:text-md`}
             >
                 {children}
             </span>

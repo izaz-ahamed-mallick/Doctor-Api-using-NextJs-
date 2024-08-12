@@ -76,7 +76,7 @@ const Header = () => {
                     <nav className="hidden xs:hidden lg:flex   md:hidden space-x-6 mx-auto">
                         <div
                             onClick={() => navigateToSection("home")}
-                            className="relative group text-md font-semibold px-4 py-2 text-white cursor-pointer  hover:text-blue-300 transition-colors duration-300 ease-in-out"
+                            className="relative group text-sm font-semibold px-4 py-2 text-white cursor-pointer  hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">HOME</span>
                             <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
@@ -84,7 +84,7 @@ const Header = () => {
                         </div>
                         <div
                             onClick={() => navigateToSection("aboutUs")}
-                            className="relative group text-md font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
+                            className="relative group text-sm font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">ABOUT US</span>
                             <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
@@ -92,7 +92,7 @@ const Header = () => {
                         </div>
                         <div
                             onClick={() => navigateToSection("blogHome")}
-                            className="relative group text-md font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
+                            className="relative group text-sm font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">BLOG</span>
                             <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
@@ -119,7 +119,7 @@ const Header = () => {
                                         className="rounded-full border-2 border-gray-300 shadow-inner"
                                     />
                                 )}
-                                <span className="font-medium text-lg">
+                                <span className="font-medium text-md">
                                     {name}
                                 </span>
                                 <svg
@@ -141,7 +141,7 @@ const Header = () => {
                             </button>
 
                             <div
-                                className={` hidden md:block fixed top-20 right-0 h-auto w-64 py-2  text-xl  bg-white rounded-b-lg text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
+                                className={` hidden md:block fixed top-20 right-0 h-auto w-64 py-2  text-md  bg-white rounded-b-lg text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
                                     isDropdownOpen
                                         ? "translate-x-0 right-0"
                                         : "translate-x-full"
