@@ -1,6 +1,7 @@
 import { imgPath, sanitizeImagePath } from "../../../../api/axios/helper";
 
 const { default: Image } = require("next/image");
+import user from "../../../../public/Images/userIcon.jpeg";
 
 const Comment = ({ commentSec }) => {
     return (
@@ -8,7 +9,7 @@ const Comment = ({ commentSec }) => {
             <Image
                 width={48}
                 height={48}
-                src={imgPath + sanitizeImagePath(commentSec.user_id?.image)}
+                src={user}
                 alt={"su"}
                 className="w-12 h-12 rounded-full object-cover"
             />

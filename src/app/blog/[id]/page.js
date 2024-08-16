@@ -36,6 +36,7 @@ const SingleBlogPage = ({ params }) => {
                 <section className="bg-white shadow-lg rounded-lg p-8 max-w-4xl w-full text-gray-800">
                     <div className="mb-8 relative h-64 w-full rounded-lg overflow-hidden">
                         <Image
+                            priority
                             fill
                             style={{ objectFit: "cover" }}
                             src={

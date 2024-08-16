@@ -7,6 +7,7 @@ let axiosInstance = axios.create({
     baseURL,
 });
 export const imgPath = "https://doctor-service.onrender.com/";
+
 export const sanitizeImagePath = (path) => {
     return path.replace(/\\/g, "/");
 };
