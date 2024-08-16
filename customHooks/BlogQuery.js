@@ -4,7 +4,7 @@ import getSearchBlog from "../api/function/blogApi/getSearchBlog";
 import getSingleBlog from "../api/function/blogApi/getSingleBlog";
 import getComment from "../api/function/blogApi/getComment";
 import createComment from "../api/function/blogApi/createComment";
-import queryClient from "./globalHooks/globalHooks";
+import queryClient, { useGlobalQuery } from "./globalHooks/globalHooks";
 
 export const useAllBlog = (selectBlog) => {
     const { data, isError, isLoading } = useQuery({
@@ -48,6 +48,7 @@ export const useSingleComment = (id) => {
 };
 
 export const useCreateComment = () => {
+    const queryClient = useGlobalQuery();
     return useMutation({
         mutationFn: createComment,
         onSuccess: (response) => {

@@ -1,5 +1,6 @@
-import { QueryClient } from "@tanstack/react-query";
+import { QueryClient, useQueryClient } from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
-
-export default queryClient;
+export const useGlobalQuery = () => {
+    const queryClient = useQueryClient();
+    return queryClient;
+};
