@@ -95,7 +95,7 @@ const Header = () => {
                             className="relative group text-sm font-semibold px-4 py-2 text-white cursor-pointer hover:text-blue-300 transition-colors duration-300 ease-in-out"
                         >
                             <span className="relative z-10">BLOG</span>
-                            <div className="absolute inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
+                            <div className="absolute  inset-0 bg-blue-600 opacity-0 rounded-br-2xl rounded-tl-2xl group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
                             <div className="absolute inset-0 border-b-2 border-blue-300 -bottom-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
                         </div>
                     </nav>
