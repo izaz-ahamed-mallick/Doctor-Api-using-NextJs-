@@ -115,7 +115,7 @@ const Header = () => {
                                         height={40}
                                         priority
                                         src={userIcon}
-                                        alt={name.toUpperCase()}
+                                        alt={name?.toUpperCase()}
                                         className="rounded-full border-2 border-gray-300 shadow-inner"
                                     />
                                 )}
