@@ -1,5 +1,4 @@
 import React from "react";
-// Create a separate CSS file for additional styles
 
 const LoadingButton = ({ isLoading, children, bgCol, hoverCol, ...props }) => {
     return (
