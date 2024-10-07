@@ -3,7 +3,6 @@ import React from "react";
 const Loader = () => {
     return (
         <div className="bg-gray-100 min-h-[1400px] flex flex-col">
-            {/* Hero Section Loader */}
             <div className="relative w-full h-80 bg-gray-300 overflow-hidden">
                 <div className="absolute inset-0 shimmer"></div>
                 <div className="relative flex flex-col items-center justify-center h-full bg-gray-200">
@@ -12,7 +11,6 @@ const Loader = () => {
                 </div>
             </div>
 
-            {/* Department Cards Loader */}
             <div className="container mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {Array(6)
