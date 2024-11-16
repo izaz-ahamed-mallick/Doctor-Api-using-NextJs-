@@ -8,7 +8,7 @@ import logo from "../../public/Images/logo.png";
 import icon from "../../public/Images/icon2.png";
 import crossicon from "../../public/Images/crossicon2.png";
 import userIcon from "../../public/Images/userIcon.jpeg";
-import { imgPath, sanitizeImagePath } from "../../api/axios/helper";
+
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
