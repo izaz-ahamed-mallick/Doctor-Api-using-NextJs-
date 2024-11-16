@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 import LoadingButton from "../Utils/LoadingButton";
-import axiosInstance from "../../../api/axios/helper";
+
 import { useContactUs } from "../../../customHooks/DoctorQuery";
 import crossIcon from "../../../public/Images/crossicon2.png";
 import Image from "next/image";
@@ -31,8 +31,14 @@ const ContactUsModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
-            <div className="bg-white rounded-lg shadow-lg max-w-lg w-full p-6">
+        <div
+            onClick={onClose}
+            className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50"
+        >
+            <div
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white rounded-lg shadow-lg max-w-lg w-full p-6"
+            >
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-2xl font-bold text-gray-800">
                         Contact Us

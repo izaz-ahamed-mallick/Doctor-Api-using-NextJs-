@@ -1,10 +1,9 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
+
 import React, { useState } from "react";
 import aboutImg from "../../../public/Images/aboutUs2.jpeg";
 import ContactUsModal from "./ContactUsModal";
-import HeroSection from "./HeroSection2";
+
 import HeroSection2 from "./HeroSection2";
 
 const AboutUs = () => {

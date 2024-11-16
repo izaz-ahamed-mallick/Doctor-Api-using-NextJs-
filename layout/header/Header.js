@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 const Header = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const dispatch = useDispatch();
     const router = useRouter();
     const [isClient, setIsClient] = useState(false);
@@ -53,9 +54,32 @@ const Header = () => {
         setMobileMenuOpen(false);
         setDropdownOpen(false);
     };
+    useEffect(() => {
+        setIsClient(true);
+
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
-        <header className="bg-blue-900 text-white shadow-lg ">
+        <header
+            className={`w-full sticky top-0 z-30 transition-all duration-300 ${
+                scrolled
+                    ? "bg-blue-900/70 backdrop-blur-md shadow-lg"
+                    : "bg-blue-900"
+            }`}
+        >
             <div className="container  mx-auto flex items-center justify-between p-4 h-[80px]">
                 {/* Logo Section */}
 
