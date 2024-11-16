@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { useDoctorDetails } from "../../../../customHooks/DoctorQuery";
 import { imgPath, sanitizeImagePath } from "../../../../api/axios/helper";
