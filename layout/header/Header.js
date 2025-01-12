@@ -45,10 +45,6 @@ const Header = () => {
         setDropdownOpen(false);
     };
 
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
-
     const navigateToSection = (section) => {
         router.push(`/doctorList?section=${section}`);
         setMobileMenuOpen(false);
@@ -74,7 +70,7 @@ const Header = () => {
 
     return (
         <header
-            className={`w-full sticky top-0 z-30 transition-all duration-300 ${
+            className={`max-w-full sticky top-0 z-50 transition-all duration-300 ${
                 scrolled
                     ? "bg-blue-900/70 backdrop-blur-md shadow-lg"
                     : "bg-blue-900"
@@ -165,11 +161,12 @@ const Header = () => {
                             </button>
 
                             <div
-                                className={` hidden md:block fixed top-20 right-0 h-auto w-64 py-2  text-md  bg-white rounded-b-lg text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
+                                className={`hidden md:block fixed top-20 right-0 h-auto w-64 py-2 text-md bg-white rounded-b-lg text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
                                     isDropdownOpen
-                                        ? "translate-x-0 right-0"
-                                        : "translate-x-full"
+                                        ? "translate-x-0 overflow-auto"
+                                        : "translate-x-full overflow-hidden"
                                 }`}
+                                style={{ right: 0 }}
                             >
                                 <Link href="/user" legacyBehavior>
                                     <a
@@ -217,10 +214,10 @@ const Header = () => {
                             </button>
                         </div>
                         <div
-                            className={`fixed top-20 right-0 h-full bg-white text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
+                            className={`fixed top-20 right-0 min-h-full bg-white text-black z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${
                                 isMobileMenuOpen
-                                    ? "translate-x-0"
-                                    : "translate-x-full"
+                                    ? "translate-x-0 overflow-auto"
+                                    : "translate-x-full overflow-hidden hidden"
                             }`}
                         >
                             <button

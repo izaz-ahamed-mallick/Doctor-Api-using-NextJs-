@@ -6,6 +6,27 @@
     transition: max-height 0.5s ease-in-out;
 }
 
+html,
+body {
+    height: 100%; /* Ensure body and html are full height */
+    margin: 0; /* Remove margin */
+}
+
+header {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky; /* For other browsers */
+    top: 0;
+    z-index: 50; /* Ensure it's above other content */
+}
+
+.container {
+    position: relative;
+}
+
+body {
+    overflow-x: hidden; /* Keep this if you're using it */
+}
+
 .loader {
     border: 4px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
