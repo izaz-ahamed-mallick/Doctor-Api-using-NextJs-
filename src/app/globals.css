@@ -12,17 +12,6 @@ body {
     margin: 0; /* Remove margin */
 }
 
-header {
-    position: -webkit-sticky; /* For Safari */
-    position: sticky; /* For other browsers */
-    top: 0;
-    z-index: 50; /* Ensure it's above other content */
-}
-
-.container {
-    position: relative;
-}
-
 body {
     overflow-x: hidden; /* Keep this if you're using it */
 }
